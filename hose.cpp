@@ -2,6 +2,7 @@
 #include <string>
 #include <fstream>
 #include <Windows.h>
+#include "Funct.h"
 #include "Hose.h"
 
 // Конструктор копирования
@@ -25,6 +26,7 @@ Hose Hose::operator=(const Hose* obj) {
 
 // Вывод данных
 void Hose::show_hose() {
+	std::cout << std::endl;
 	std::cout << "Номер рукава: " << num_hose << std::endl;
 	std::cout << "Категория рукава: " << category_hose << std::endl;
 	std::cout << "Диаметр рукава: " << diameter_hose << std::endl;
@@ -33,88 +35,20 @@ void Hose::show_hose() {
 
 // Изменение данных
 void Hose::hose_change() {
-	while (true)
-	{
-		std::cout << "Введите номер рукава: ";
-		std::cin >> num_hose;
-		if (!std::cin)	// Проверка на правильность ввода
-		{
-			std::cin.clear();	// очистка потока cin
-			while (std::cin.get() != '\n');
-
-			system("cls");
-			std::cout << "Ошибка ввода!" << std::endl;
-			std::cout << std::endl;
-			continue;
-		}
-		break;
-	}
-
-	while (true)
-	{
-		std::cout << "Введите категорию рукава: ";
-		std::cin >> category_hose;
-		if (!std::cin)	// Проверка на правильность ввода
-		{
-			std::cin.clear();	// очистка потока cin
-			while (std::cin.get() != '\n');
-
-			system("cls");
-			std::cout << "Ошибка ввода!" << std::endl;
-			std::cout << std::endl;
-			continue;
-		}
-		break;
-	}
 	
-	while (true)
-	{
-		std::cout << "Введите диаметр рукава: ";
-		std::cin >> diameter_hose;
-		if (!std::cin)	// Проверка на правильность ввода
-		{
-			std::cin.clear();	// очистка потока cin
-			while (std::cin.get() != '\n');
+	std::cout << "Введите номер рукава: ";
+	num_hose = input_validat();
 
-			system("cls");
-			std::cout << "Ошибка ввода!" << std::endl;
-			std::cout << std::endl;
-			continue;
-		}
-		break;
-	}
-	
-	//while (true)
-	//{
-	//	std::cout << "Введите время работы рукава, часов: ";
-	//	std::cin >> hose_job_h;
-	//	if (!std::cin)	// Проверка на правильность ввода
-	//	{
-	//		std::cin.clear();	// очистка потока cin
-	//		while (std::cin.get() != '\n');
+	std::cout << "Введите категорию рукава: ";
+	category_hose = input_validat();
 
-	//		system("cls");
-	//		std::cout << "Ошибка ввода!" << std::endl;
-	//		std::cout << std::endl;
-	//		continue;
-	//	}
-	//	break;
-	//}
-	//
-	//while (true)
-	//{
-	//	std::cout << "минут: ";
-	//	std::cin >> hose_job_m;
-	//	if (!std::cin)	// Проверка на правильность ввода
-	//	{
-	//		std::cin.clear();	// очистка потока cin
-	//		while (std::cin.get() != '\n');
+	std::cout << "Введите диаметр рукава: ";
+	diameter_hose = input_validat();
 
-	//		system("cls");
-	//		std::cout << "Ошибка ввода!" << std::endl;
-	//		std::cout << std::endl;
-	//		continue;
-	//	}
-	//	break;
-	//}
+	//std::cout << "Введите время работы рукава, часов: ";
+	//hose_job_h = search_input();
+
+	//std::cout << "минут: ";
+	//hose_job_m = search_input();
+
 }

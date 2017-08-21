@@ -15,51 +15,37 @@ void program() {
 		std::cout << "6 - количество рукавов." << std::endl;
 		std::cout << "7 - показать рукава." << std::endl;
 		std::cout << "8 - сохранить и выйти." << std::endl;
-		int menu;
 		std::cout << std::endl;
 		std::cout << "Введите пункт меню: ";
-		std::cin >> menu;
-		
-		// Проверка на правильность ввода
-		if (!std::cin)	
+
+		int menu = input_validat();
+
+		system("cls");
+
+		switch (menu)
 		{
-			std::cin.clear();	// очистка потока cin
-			while (std::cin.get() != '\n');
-
-			system("cls");
-			std::cout << "Ошибка ввода!" << std::endl;
-			continue;
-		}
-
-		if (menu == 1) {
-			system("cls");
+		case 1:
 			new_hose();
-		}
-		else if (menu == 2) {
-			system("cls");
+			break;
+		case 2:
 			shift_hose();
-		}
-		else if (menu == 3) {
-			system("cls");
+			break;
+		case 3:
 			change_hose();
-		}
-		else if (menu == 4) {
-			system("cls");
+			break;
+		case 4:
 			del_hose();
-		}
-		else if (menu == 5) {
-			system("cls");
+			break;
+		case 5:
 			search_hose();
-		}
-		else if (menu == 6) {
-			system("cls");
+			break;
+		case 6:
 			quantity_hose();
-		}
-		else if (menu == 7) {
-			system("cls");
+			break;
+		case 7:
 			show_hose();
-		}
-		else if (menu == 8) {
+			break;
+		case 8:
 			break;
 		}
 	}

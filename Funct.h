@@ -32,5 +32,7 @@ void save_ALL();
 // загрузка данных
 void load_ALL();
 
+int input_validat();	// Проверка на правельность ввода
+
 
 #endif

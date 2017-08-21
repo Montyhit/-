@@ -11,19 +11,8 @@ void change_hose() {
 	while (true)
 	{
 		std::cout << "Введите номер рукава, который нужно изменить: ";
-		int num_hose;
-		std::cin >> num_hose;
-
-		if (!std::cin)	// Проверка на правильность ввода
-		{
-			std::cin.clear();	// очистка потока cin
-			while (std::cin.get() != '\n');
-
-			system("cls");
-			std::cout << "Ошибка ввода!" << std::endl;
-			std::cout << std::endl;
-			continue;
-		}
+		
+		int num_hose = input_validat();
 
 		if (hose_search_funct_bool(num_hose)) {
 			Hose tmp_obj(hose_search_funct(num_hose));

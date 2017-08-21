@@ -30,20 +30,12 @@ void show_hose()
 			<< "7 - Ремонт." << std::endl
 			<< "Введите пункт меню: ";
 
-		std::cin >> menu;
 
-		system("cls");
-
-		if (!std::cin)
-		{
-			std::cout << "Ошибка ввода!" << std::endl;
-			std::cout << std::endl;
-			std::cin.clear();	// очистка потока cin
-			while (std::cin.get() != '\n');
-			continue;
-		}
+		menu = input_validat();
 		break;
 	}
+
+	system("cls");
 
 	switch (menu)
 	{
