@@ -6,8 +6,6 @@
 #include <list>
 #include "Hose.h"
 
-
-
 void new_hose();	// Создание рукава и добавление его на рукавную базу
 void shift_hose();	// Перемещение рукава
 void change_hose();	// Изменение рукава
@@ -20,8 +18,8 @@ void show_hose();	// Показывает все рукава
 Hose hose_search_funct(int&);		
 bool hose_search_funct_bool(int&);	
 
-// функция поиска и удаления рукава
-int funct_del_hose(int num_hose);
+// функция удаления 
+void _delete(int);
 
 // Вход в программу
 void program();
@@ -32,7 +30,14 @@ void save_ALL();
 // загрузка данных
 void load_ALL();
 
-int input_validat();	// Проверка на правельность ввода
+// Проверка на правильность ввода
+int input_validat();	
 
+// Функция сохранения объекта в файл
+//template <class T>
+void save(const char*, std::list<Hose>);
+
+// Функция загрузки данных
+void load(const char*, std::list<Hose>*);
 
 #endif

@@ -3,9 +3,11 @@
 
 void program() {
 
+	bool exit = true;
+
 	setlocale(LC_ALL, "Rus");
 
-	while (true) {
+	while (exit) {
 		std::cout << std::endl;
 		std::cout << "1 - новый рукав." << std::endl;
 		std::cout << "2 - переместить рукав." << std::endl;
@@ -46,6 +48,7 @@ void program() {
 			show_hose();
 			break;
 		case 8:
+			exit = false;
 			break;
 		}
 	}

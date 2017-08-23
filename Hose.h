@@ -15,6 +15,7 @@ private:
 	int diameter_hose;
 	int hose_job_h;	// наработка рукава, час
 	int hose_job_m;	// наработка рукава, мин
+
 public:
 	Hose() : num_hose(0), category_hose(0), diameter_hose(0), hose_job_h(0), hose_job_m(0) {};
 	Hose(const Hose*);	// Конструктор копирования
@@ -29,6 +30,5 @@ public:
 
 	void show_hose();
 };
-
 
 #endif // !HOSE_H

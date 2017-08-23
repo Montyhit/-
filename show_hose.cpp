@@ -30,7 +30,6 @@ void show_hose()
 			<< "7 - –емонт." << std::endl
 			<< "¬ведите пункт меню: ";
 
-
 		menu = input_validat();
 		break;
 	}
@@ -41,45 +40,31 @@ void show_hose()
 	{
 	case 1:
 		for (auto hose : hose_base)
-		{
 			hose.show_hose();
-		}
 		break;
 	case 2:
 		for (auto hose : AC_2_5)
-		{
 			hose.show_hose();
-		}
 		break;
 	case 3:
 		for (auto hose : AC_5_0)
-		{
 			hose.show_hose();
-		}
 		break;
 	case 4:
 		for (auto hose : ABR)
-		{
 			hose.show_hose();
-		}
 		break;
 	case 5:
 		for (auto hose : AGDZS)
-		{
 			hose.show_hose();
-		}
 		break;
 	case 6:
 		for (auto hose : AKTPL)
-		{
 			hose.show_hose();
-		}
 		break;
 	case 7:
 		for (auto hose : repairs)
-		{
 			hose.show_hose();
-		}
 		break;
 	}
 }

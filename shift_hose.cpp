@@ -36,12 +36,11 @@ void shift_hose() {
 			<< "Введите пункт меню: ";
 
 		int menu_item = input_validat();
-		std::cin >> menu_item;
 
 		Hose a = hose_search_funct(num_hose);	// Присвоили новому объекту значение искомого рукава
 
 		system("cls");
-		funct_del_hose(num_hose);	//	Удаление рукава из списка
+		_delete(num_hose); 	//	Удаление рукава из списка
 		switch (menu_item) {
 		case 1: {
 			hose_base.push_back(a);	// добавление созданного объекта в список
