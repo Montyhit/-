@@ -1,5 +1,7 @@
 // функция удаления
 
+// Переделать
+
 #include <iostream>
 #include <list>
 #include "Hose.h"
@@ -18,7 +20,7 @@ void del(int num, std::list<Hose> *list)
 	}
 };
 
-void _delete(int num_hose) {
+void funct_delete(int num_hose) {
 
 	extern std::list<Hose> hose_base;
 	extern std::list<Hose> repairs;

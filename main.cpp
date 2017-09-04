@@ -1,10 +1,9 @@
 #include "Funct.h"
-#include <cstdlib>
 
 int main() {
 
 	load_ALL();
-	program();
+	menu();
 	save_ALL();
 	return 0;
 }

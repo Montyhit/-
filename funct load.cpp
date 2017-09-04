@@ -1,11 +1,12 @@
-// Функция сохранения данных
+// Функция загрузки данных
 
 #include <iostream>
+#include <fstream>
 #include <list>
 #include "Hose.h"
 #include "Funct.h"
 
-void load(const char *name, std::list<Hose> *list)
+void funct_load(const char *name, std::list<Hose> *list)
 {
 	Hose tmp_obj;
 

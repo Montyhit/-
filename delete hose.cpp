@@ -11,8 +11,8 @@ void del_hose() {
 
 	int num_hose = input_validat();
 
-	if (hose_search_funct_bool(num_hose)) {
-		_delete(num_hose);
+	if (funct_search_bool(num_hose)) {
+		funct_delete(num_hose);
 		std::cout << "Рукав " << num_hose << " удален." << std::endl;
 	}
 	else {

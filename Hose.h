@@ -1,5 +1,3 @@
-#pragma once
-
 #ifndef HOSE_H
 #define HOSE_H
 
@@ -21,14 +19,24 @@ public:
 	Hose(const Hose*);	// Конструктор копирования
 
 	Hose operator=(const Hose*);
-
-	inline int get_num_hose() {
+	bool operator== (const Hose*);
+	bool operator== (const int);
+	inline int get_num_hose() 
+	{
 		return num_hose;
+	}				
+	inline int get_category_hose()
+	{
+		return category_hose;
 	}
-
-	void hose_change();	// изменение данных рукава
-
+	inline int get_diameter_hose()
+	{
+		return diameter_hose;
+	}				
+	void create_hose();	// создание рукава
 	void show_hose();
+
+	friend void funct_hose_change(Hose *obj);	// изменение данных рукава
 };
 
 #endif // !HOSE_H

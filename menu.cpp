@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Funct.h"
 
-void program() {
+void menu() {
 
 	bool exit = true;
 
@@ -11,12 +11,13 @@ void program() {
 		std::cout << std::endl;
 		std::cout << "1 - новый рукав." << std::endl;
 		std::cout << "2 - переместить рукав." << std::endl;
-		std::cout << "3 - изменить данные о рукаве." << std::endl;
-		std::cout << "4 - удалить рукав." << std::endl;
-		std::cout << "5 - поиск рукава." << std::endl;
-		std::cout << "6 - количество рукавов." << std::endl;
-		std::cout << "7 - показать рукава." << std::endl;
-		std::cout << "8 - сохранить и выйти." << std::endl;
+		std::cout << "3 - автоматически укомплектовать ПАСА рукавами." << std::endl;
+		std::cout << "4 - изменить данные о рукаве." << std::endl;
+		std::cout << "5 - удалить рукав." << std::endl;
+		std::cout << "6 - поиск рукава." << std::endl;
+		std::cout << "7 - количество рукавов." << std::endl;
+		std::cout << "8 - показать рукава." << std::endl;
+		std::cout << "9 - сохранить и выйти." << std::endl;
 		std::cout << std::endl;
 		std::cout << "Введите пункт меню: ";
 
@@ -33,21 +34,24 @@ void program() {
 			shift_hose();
 			break;
 		case 3:
-			change_hose();
+			auto_collation();
 			break;
 		case 4:
-			del_hose();
+			change_hose();
 			break;
 		case 5:
-			search_hose();
+			del_hose();
 			break;
 		case 6:
-			quantity_hose();
+			search_hose();
 			break;
 		case 7:
-			show_hose();
+			quantity_hose();
 			break;
 		case 8:
+			show_hose();
+			break;
+		case 9:
 			exit = false;
 			break;
 		}

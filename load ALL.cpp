@@ -18,12 +18,12 @@ void load_ALL()
 	extern std::list<Hose> AGDZS;
 	extern std::list<Hose> ABR;
 
-	load("Hose base.DAT", &hose_base);
-	load("Repairs.DAT", &repairs);
-	load("AKTPL.DAT", &AKTPL);
-	load("AC 2.5_50.DAT", &AC_2_5);
-	load("AC 5.0_50.DAT", &AC_5_0);
-	load("AGDZS.DAT", &AGDZS);
-	load("ABR.DAT", &ABR);
+	funct_load("Hose base.DAT",	&hose_base);
+	funct_load("Repairs.DAT",	&repairs);
+	funct_load("AKTPL.DAT",		&AKTPL);
+	funct_load("AC 2.5_50.DAT",	&AC_2_5);
+	funct_load("AC 5.0_50.DAT",	&AC_5_0);
+	funct_load("AGDZS.DAT",		&AGDZS);
+	funct_load("ABR.DAT",		&ABR);
 
 }

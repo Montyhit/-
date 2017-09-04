@@ -15,14 +15,15 @@ void save_ALL()
 	extern std::list<Hose> AGDZS;
 	extern std::list<Hose> ABR;
 
-	save("Hose base.DAT", hose_base);
-	save("Repairs.DAT", repairs);
-	save("AKTPL.DAT", AKTPL);
-	save("AC 2.5_50.DAT", AC_2_5);
-	save("AC 5.0_50.DAT", AC_5_0);
-	save("AGDZS.DAT", AGDZS);
-	save("ABR.DAT", ABR);
+	funct_save("Hose base.DAT", &hose_base);
+	funct_save("Repairs.DAT", &repairs);
+	funct_save("AKTPL.DAT", &AKTPL);
+	funct_save("AC 2.5_50.DAT", &AC_2_5);
+	funct_save("AC 5.0_50.DAT", &AC_5_0);
+	funct_save("AGDZS.DAT", &AGDZS);
+	funct_save("ABR.DAT", &ABR);
 
 	std::cout << "Все данные записаны." << std::endl;
 
 }
+

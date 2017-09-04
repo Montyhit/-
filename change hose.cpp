@@ -10,19 +10,17 @@ void change_hose() {
 	extern std::list<Hose> hose_base;
 	while (true)
 	{
+		system("cls");
 		std::cout << "¬ведите номер рукава, который нужно изменить: ";
-		
 		int num_hose = input_validat();
 
-		if (hose_search_funct_bool(num_hose)) {
-			Hose tmp_obj(hose_search_funct(num_hose));
-			tmp_obj.hose_change();
-			_delete(num_hose);
-			hose_base.push_back(tmp_obj);
-			system("cls");
-			std::cout << "–укав изменен и добавлен на рукавную базу." << std::endl;
+		if (funct_search_bool(num_hose)) 
+		{
+			funct_hose_change(&funct_search(num_hose));
+			std::cout << "–укав " << num_hose << " изменен и добавлен на рукавную базу." << std::endl;
 		}
-		else {
+		else
+		{
 			system("cls");
 			std::cout << "–укав " << num_hose << " не найден." << std::endl;
 		}
