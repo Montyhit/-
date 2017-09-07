@@ -5,8 +5,13 @@
 #include <fstream>
 #include <string>
 
+// Константы пожарных пукавов
+const enum diameter_hose { _38 = 38, _51 = 51, _66 = 66, _75 = 75, _77 = 77, _125 = 125, _150 = 150 };
+const enum category_hose { cat_1 = 1, cat_2, cat_3 };
+
 // рукав
-class Hose {
+class Hose 
+{
 private:
 	int num_hose;
 	int category_hose;
@@ -18,9 +23,10 @@ public:
 	Hose() : num_hose(0), category_hose(0), diameter_hose(0), hose_job_h(0), hose_job_m(0) {};
 	Hose(const Hose*);	// Конструктор копирования
 
-	Hose operator=(const Hose*);
+	Hose operator= (const Hose*);
 	bool operator== (const Hose*);
-	bool operator== (const int);
+	bool operator== (const int num_hose);
+
 	inline int get_num_hose() 
 	{
 		return num_hose;
@@ -32,7 +38,11 @@ public:
 	inline int get_diameter_hose()
 	{
 		return diameter_hose;
-	}				
+	}			
+	int diam(int diam)
+	{
+		return this->diameter_hose == diam ? true : false;
+	}
 	void create_hose();	// создание рукава
 	void show_hose();
 

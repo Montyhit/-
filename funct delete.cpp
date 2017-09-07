@@ -1,11 +1,10 @@
 // функция удаления
 
-// Переделать
-
 #include <iostream>
 #include <list>
 #include "Hose.h"
 #include "Funct.h"
+#include "Singleton.h"
 
 void del(int num, std::list<Hose> *list)
 {
@@ -20,21 +19,13 @@ void del(int num, std::list<Hose> *list)
 	}
 };
 
-void funct_delete(int num_hose) {
-
-	extern std::list<Hose> hose_base;
-	extern std::list<Hose> repairs;
-	extern std::list<Hose> AKTPL;
-	extern std::list<Hose> AC_2_5;
-	extern std::list<Hose> AC_5_0;
-	extern std::list<Hose> AGDZS;
-	extern std::list<Hose> ABR;
-
-	del(num_hose, &hose_base);
-	del(num_hose, &repairs);
-	del(num_hose, &AKTPL);
-	del(num_hose, &AC_2_5);
-	del(num_hose, &AC_5_0);
-	del(num_hose, &AGDZS);
-	del(num_hose, &ABR);
+void funct_delete(int num_hose) 
+{
+	del(num_hose, Hose_base::call());
+	del(num_hose, Repairs::call());
+	del(num_hose, AKTPL::call());
+	del(num_hose, AC_2_5::call());
+	del(num_hose, AC_5_0::call());
+	del(num_hose, AGDZS::call());
+	del(num_hose, ABR::call());
 }

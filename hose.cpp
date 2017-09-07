@@ -5,11 +5,8 @@
 #include "Funct.h"
 #include "Hose.h"
 
-// Константы категорий рукавов
-enum category_hose { cat_1 = 1, cat_2, cat_3 };
-
-// Константы диаметров пожарных рукавов
-const enum diameter_hose { _38 = 38, _51 = 51, _66 = 66, _75 = 75, _77 = 77, _125 = 125, _150 = 150 };
+const extern enum diameter_hose;
+const extern enum category_hose;
 
 // Создание рукава
 void Hose::create_hose()

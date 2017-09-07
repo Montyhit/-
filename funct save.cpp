@@ -5,7 +5,6 @@
 #include "Hose.h"
 #include "Funct.h"
 
-//template <class T>
 void funct_save(const char *name, std::list<Hose> *list)
 {
 	remove(name);

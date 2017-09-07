@@ -3,24 +3,30 @@
 #include <iostream>
 #include "Funct.h"
 #include "Hose.h"
-
-extern std::list<Hose> hose_base;
+#include "Singleton.h"
 
 // Константы категории рукавов
-const enum category_hose { cat_1 = 1, cat_2, cat_3 };
+const extern enum category_hose;
 
 void funct_hose_change(Hose *obj) 
 {
 	while (true)
 	{
+		std::cout << "0 - выход." << std::endl << std::endl;
 		std::cout << "Введите категорию рукава: ";
 		int num = input_validat();
+
+		system("cls");
+		
+		if (num == 0)
+			break;
+
 		if (cat_1 == num || cat_2 == num || cat_3 == num)
 		{
 			obj->category_hose = num;
 			funct_delete(obj->get_num_hose());
 			Hose tmp = obj;
-			hose_base.push_back(obj);
+			Hose_base::call()->push_back(obj);
 			break;
 		}
 		else

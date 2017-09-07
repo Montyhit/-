@@ -5,14 +5,19 @@
 #include "Hose.h"
 #include "Funct.h"
 
-void change_hose() {
-
-	extern std::list<Hose> hose_base;
+void change_hose() 
+{
 	while (true)
 	{
 		system("cls");
+		std::cout << "0 - выход." << std::endl << std::endl;
 		std::cout << "¬ведите номер рукава, который нужно изменить: ";
 		int num_hose = input_validat();
+
+		system("cls");
+
+		if (num_hose == 0)
+			break;
 
 		if (funct_search_bool(num_hose)) 
 		{
@@ -21,7 +26,6 @@ void change_hose() {
 		}
 		else
 		{
-			system("cls");
 			std::cout << "–укав " << num_hose << " не найден." << std::endl;
 		}
 		break;

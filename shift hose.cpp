@@ -3,29 +3,35 @@
 #include <iostream>
 #include <list>
 #include "Funct.h"
+#include "Singleton.h"
 
-void shift_hose() {
+std::list<Hose> tmp_repository;
 
-	extern std::list<Hose> hose_base;
-	extern std::list<Hose> repairs;
-	extern std::list<Hose> AKTPL;
-	extern std::list<Hose> AC_2_5;
-	extern std::list<Hose> AC_5_0;
-	extern std::list<Hose> AGDZS;
-	extern std::list<Hose> ABR;
-
+void shift_hose() 
+{
 	while (true)
 	{
-		std::cout << "Введите номер рукава, который нужно переместить: ";
+		std::cout << "0 - выход." << std::endl;
+		std::cout << "Введите номера рукавов, которые нужно переместить:" << std::endl;
+		while (true)
+		{
+			int num_hose = input_validat();
+			if (num_hose == 0)
+				break;
 
-		int num_hose = input_validat();
-
-		if (!funct_search_bool(num_hose)) {
-			std::cout << "Рукав " << num_hose << " не найден" << std::endl;
-			break;
+			if (!funct_search_bool(num_hose))
+			{
+				std::cout << "Рукав " << num_hose << " не найден" << std::endl;
+				continue;
+			}
+			Hose tmp_hose = funct_search(num_hose);
+			funct_delete(num_hose);
+			tmp_repository.push_back(tmp_hose);
 		}
 
-		std::cout << "Куда переместить данный рукав?" << std::endl
+		system("cls");
+		std::cout << "0 - выход." << std::endl << std::endl;
+		std::cout << "Куда переместить рукава?" << std::endl
 			<< "1 - Рукавная база." << std::endl
 			<< "2 - АЦ 2.5/50." << std::endl
 			<< "3 - АЦ 5.0/50." << std::endl
@@ -36,55 +42,38 @@ void shift_hose() {
 			<< "Введите пункт меню: ";
 
 		int menu_item = input_validat();
-
-		Hose a = funct_search(num_hose);	// Присвоили новому объекту значение искомого рукава
-
 		system("cls");
-		funct_delete(num_hose); 	//	Удаление рукава из списка
+
 		switch (menu_item) 
 		{
 		case 1: 
-		{
-			hose_base.push_back(a);	// добавление созданного объекта в список
-			std::cout << num_hose << " рукав добавлен на рукавную базу" << std::endl;
+			Hose_base::call()->splice(Hose_base::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены на рукавную базу" << std::endl;
 			break;
-		}
 		case 2: 
-		{
-			AC_2_5.push_back(a);
-			std::cout << num_hose << " рукав добавлен на АЦ 2.5/50" << std::endl;
+			AC_2_5::call()->splice(AC_2_5::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены на АЦ 2.5/50" << std::endl;
 			break;
-		}
 		case 3: 
-		{
-			AC_5_0.push_back(a);
-			std::cout << num_hose << " рукав добавлен на АЦ 5.0/50" << std::endl;
+			AC_5_0::call()->splice(AC_5_0::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены на АЦ 5.0/50" << std::endl;
 			break;
-		}
 		case 4: 
-		{
-			ABR.push_back(a);
-			std::cout << num_hose << " рукав добавлен на АБР" << std::endl;
+			ABR::call()->splice(ABR::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены на АБР" << std::endl;
 			break;
-		}
 		case 5: 
-		{
-			AGDZS.push_back(a);
-			std::cout << num_hose << " рукав добавлен на АГДЗС" << std::endl;
+			AGDZS::call()->splice(AGDZS::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены на АГДЗС" << std::endl;
 			break;
-		}
 		case 6: 
-		{
-			AKTPL.push_back(a);
-			std::cout << num_hose << " рукав добавлен на АКТПЛ" << std::endl;
+			AKTPL::call()->splice(AKTPL::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены на АКТПЛ" << std::endl;
 			break;
-		}
 		case 7: 
-		{
-			repairs.push_back(a);
-			std::cout << num_hose << " рукав добавлен в ремонт" << std::endl;
+			Repairs::call()->splice(Repairs::call()->end(), tmp_repository);
+			std::cout << "Рукава перемещены в ремонт" << std::endl;
 			break;
-		}
 		}
 		break;
 	}

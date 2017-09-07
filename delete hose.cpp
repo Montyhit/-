@@ -5,17 +5,25 @@
 #include "Hose.h"
 #include "Funct.h"
 
-void del_hose() {
-
+void del_hose() 
+{
+	std::cout << "0 - выход." << std::endl << std::endl;
 	std::cout << "¬ведите номер рукава, который нужно удалить: ";
 
 	int num_hose = input_validat();
 
-	if (funct_search_bool(num_hose)) {
+	system("cls");
+
+	if (num_hose == 0)
+		return void();
+
+	if (funct_search_bool(num_hose)) 
+	{
 		funct_delete(num_hose);
 		std::cout << "–укав " << num_hose << " удален." << std::endl;
 	}
-	else {
+	else 
+	{
 		std::cout << "–укав " << num_hose << " не найден." << std::endl;
 	}
 }

@@ -4,62 +4,55 @@
 #include <list>
 #include "Hose.h"
 #include "Funct.h"
-
-std::list<Hose> hose_base;
-std::list<Hose> repairs;
-std::list<Hose> AKTPL;
-std::list<Hose> AC_2_5;
-std::list<Hose> AC_5_0;
-std::list<Hose> AGDZS;
-std::list<Hose> ABR;
+#include "Singleton.h"
 
 Hose funct_search(int num_hose) 
 {
-	if (std::find(hose_base.begin(), hose_base.end(), num_hose) != hose_base.end())
-		return *std::find(hose_base.begin(), hose_base.end(), num_hose);
+	if (std::find(Hose_base::call()->begin(), Hose_base::call()->end(), num_hose) != Hose_base::call()->end())
+		return *std::find(Hose_base::call()->begin(), Hose_base::call()->end(), num_hose);
 	
-	if (std::find(repairs.begin(), repairs.end(), num_hose) != repairs.end())
-		return *std::find(repairs.begin(), repairs.end(), num_hose);
+	if (std::find(Repairs::call()->begin(), Repairs::call()->end(), num_hose) != Repairs::call()->end())
+		return *std::find(Repairs::call()->begin(), Repairs::call()->end(), num_hose);
 
-	if (std::find(AKTPL.begin(), AKTPL.end(), num_hose) != AKTPL.end())
-		return *std::find(AKTPL.begin(), AKTPL.end(), num_hose);
+	if (std::find(AKTPL::call()->begin(), AKTPL::call()->end(), num_hose) != AKTPL::call()->end())
+		return *std::find(AKTPL::call()->begin(), AKTPL::call()->end(), num_hose);
 	
-	if (std::find(AC_2_5.begin(), AC_2_5.end(), num_hose) != AC_2_5.end())
-		return *std::find(AC_2_5.begin(), AC_2_5.end(), num_hose);
+	if (std::find(AC_2_5::call()->begin(), AC_2_5::call()->end(), num_hose) != AC_2_5::call()->end())
+		return *std::find(AC_2_5::call()->begin(), AC_2_5::call()->end(), num_hose);
 	
-	if (std::find(AC_5_0.begin(), AC_5_0.end(), num_hose) != AC_5_0.end())
-		return *std::find(AC_5_0.begin(), AC_5_0.end(), num_hose);
+	if (std::find(AC_5_0::call()->begin(), AC_5_0::call()->end(), num_hose) != AC_5_0::call()->end())
+		return *std::find(AC_5_0::call()->begin(), AC_5_0::call()->end(), num_hose);
 	
-	if (std::find(AGDZS.begin(), AGDZS.end(), num_hose) != AGDZS.end())
-		return *std::find(AGDZS.begin(), AGDZS.end(), num_hose);
+	if (std::find(AGDZS::call()->begin(), AGDZS::call()->end(), num_hose) != AGDZS::call()->end())
+		return *std::find(AGDZS::call()->begin(), AGDZS::call()->end(), num_hose);
 
-	if (std::find(ABR.begin(), ABR.end(), num_hose) != ABR.end())
-		return *std::find(ABR.begin(), ABR.end(), num_hose);
+	if (std::find(ABR::call()->begin(), ABR::call()->end(), num_hose) != ABR::call()->end())
+		return *std::find(ABR::call()->begin(), ABR::call()->end(), num_hose);
 	
 	return false;
 }
 
 bool funct_search_bool(int num_hose)
 {
-	if (std::find(hose_base.begin(), hose_base.end(), num_hose) != hose_base.end())
+	if (std::find(Hose_base::call()->begin(), Hose_base::call()->end(), num_hose) != Hose_base::call()->end())
 		return true;
 
-	if (std::find(repairs.begin(), repairs.end(), num_hose) != repairs.end())
+	if (std::find(Repairs::call()->begin(), Repairs::call()->end(), num_hose) != Repairs::call()->end())
 		return true;
 
-	if (std::find(AKTPL.begin(), AKTPL.end(), num_hose) != AKTPL.end())
+	if (std::find(AKTPL::call()->begin(), AKTPL::call()->end(), num_hose) != AKTPL::call()->end())
 		return true;
 
-	if (std::find(AC_2_5.begin(), AC_2_5.end(), num_hose) != AC_2_5.end())
+	if (std::find(AC_2_5::call()->begin(), AC_2_5::call()->end(), num_hose) != AC_2_5::call()->end())
 		return true;
 
-	if (std::find(AC_5_0.begin(), AC_5_0.end(), num_hose) != AC_5_0.end())
+	if (std::find(AC_5_0::call()->begin(), AC_5_0::call()->end(), num_hose) != AC_5_0::call()->end())
 		return true;
 
-	if (std::find(AGDZS.begin(), AGDZS.end(), num_hose) != AGDZS.end())
+	if (std::find(AGDZS::call()->begin(), AGDZS::call()->end(), num_hose) != AGDZS::call()->end())
 		return true;
 
-	if (std::find(ABR.begin(), ABR.end(), num_hose) != ABR.end())
+	if (std::find(ABR::call()->begin(), ABR::call()->end(), num_hose) != ABR::call()->end())
 		return true;
 
 	return false;

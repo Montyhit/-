@@ -1,5 +1,3 @@
-
-
 #ifndef MENU_H
 #define MENU_H
 
@@ -18,6 +16,7 @@ void show_hose();	// Показывает все рукава
 void save_ALL();	// сохранение данных
 void load_ALL();	// загрузка данных
 void auto_collation();	// Автоматическая комплетовка ПАСА рукавами
+void auto_transfer_hose();	// Автоматическая разукомплектовка ПАСА
 
 int input_validat();	// Проверка на правильность ввода
 
@@ -28,9 +27,5 @@ void funct_hose_change(Hose *obj);	// Функция изменения данных рукава
 void funct_save(const char *name, std::list<Hose> *list);	// Функция сохранения объекта в файл
 void funct_load(const char*, std::list<Hose>*);				// Функция загрузки данных
 void funct_collation(int quan_hose, int diameter_hose, std::list<Hose> *list);	// Функция автоматической комплетовки
-
-
-
-
 
 #endif

@@ -8,6 +8,7 @@
 
 void funct_load(const char *name, std::list<Hose> *list)
 {
+	setlocale(LC_ALL, "Rus");
 	Hose tmp_obj;
 
 	std::ifstream file(name, std::ios::binary);

@@ -1,7 +1,7 @@
 #include "Funct.h"
 
-int main() {
-
+int main()
+{
 	load_ALL();
 	menu();
 	save_ALL();

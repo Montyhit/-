@@ -1,29 +1,22 @@
 // Сохранение всех рукавов
 
-#include <fstream>
+#include <iostream>
 #include <list>
 #include "Hose.h"
 #include "Funct.h"
+#include "Singleton.h"
 
 void save_ALL()
 {
-	extern std::list<Hose> hose_base;
-	extern std::list<Hose> repairs;
-	extern std::list<Hose> AKTPL;
-	extern std::list<Hose> AC_2_5;
-	extern std::list<Hose> AC_5_0;
-	extern std::list<Hose> AGDZS;
-	extern std::list<Hose> ABR;
+	setlocale(LC_ALL, "Rus");
 
-	funct_save("Hose base.DAT", &hose_base);
-	funct_save("Repairs.DAT", &repairs);
-	funct_save("AKTPL.DAT", &AKTPL);
-	funct_save("AC 2.5_50.DAT", &AC_2_5);
-	funct_save("AC 5.0_50.DAT", &AC_5_0);
-	funct_save("AGDZS.DAT", &AGDZS);
-	funct_save("ABR.DAT", &ABR);
+	funct_save("Hose base.DAT", Hose_base::call());
+	funct_save("Repairs.DAT", Repairs::call());
+	funct_save("AKTPL.DAT", AKTPL::call());
+	funct_save("AC 2.5_50.DAT", AC_2_5::call());
+	funct_save("AC 5.0_50.DAT", AC_5_0::call());
+	funct_save("AGDZS.DAT", AGDZS::call());
+	funct_save("ABR.DAT", ABR::call());
 
 	std::cout << "Все данные записаны." << std::endl;
-
 }
-

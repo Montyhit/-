@@ -1,18 +1,19 @@
 // ‘ункци€ комплектовки
+
 #include <iostream>
 #include <list>
 #include "Hose.h"
 #include "Funct.h"
-
-extern std::list<Hose> hose_base;
+#include "Singleton.h"
 
 void funct_collation(int quan_hose, int diameter_hose, std::list<Hose> *list)
 {
-
 	//  онстанты категории рукавов
-	enum category_hose { cat_1 = 1, cat_2, cat_3 };
+	const extern enum category_hose { cat_1 = 1, cat_2, cat_3, EXIT = 0 };
 
-	std::list<Hose>::iterator iter = hose_base.begin();
+	std::list<Hose>::iterator iter = Hose_base::call()->begin();
+
+	int tmp_quan = quan_hose;
 
 	int test = cat_1;
 
@@ -21,50 +22,56 @@ void funct_collation(int quan_hose, int diameter_hose, std::list<Hose> *list)
 		switch (test)
 		{
 		case cat_1:
-			if (iter == hose_base.end())
+			if (iter == Hose_base::call()->end())
 			{
 				test = cat_2;
-				iter = hose_base.begin();
+				iter = Hose_base::call()->begin();
+				break;
 			}
 
 			if (iter->get_diameter_hose() == diameter_hose && 
 				iter->get_category_hose() == cat_1)
 			{
-				list->splice(list->end(), hose_base, iter);
+				list->splice(list->end(), *Hose_base::call(), iter);
 				quan_hose--;
-				iter = hose_base.begin();	// Ёто нужно, так как во врем€ работы splice, iter становитс€ итератором list а не hose_base
+				iter = Hose_base::call()->begin();	// Ёто нужно, так как во врем€ работы splice, iter становитс€ итератором list а не hose_base
 			}
 			break;
 		case cat_2:
-			if (iter == hose_base.end())
+			if (iter == Hose_base::call()->end())
 			{
 				test = cat_3;
-				iter = hose_base.begin();
+				iter = Hose_base::call()->begin();
+				break;
 			}
 
 			if (iter->get_diameter_hose() == diameter_hose &&
 				iter->get_category_hose() == cat_2)
 			{
-				list->splice(list->end(), hose_base, iter);
+				list->splice(list->end(), *Hose_base::call(), iter);
 				quan_hose--;
-				iter = hose_base.begin();
+				iter = Hose_base::call()->begin();
 			}
 			break;
 		case cat_3:
-			if (iter == hose_base.end())
+			if (iter == Hose_base::call()->end())
 			{
 				std::cout << "Ќа рукавной базе отсутствуют рукава диаметра " << diameter_hose << "мм." << std::endl;
+				test = EXIT;
+				break;
 			}
 
 			if (iter->get_diameter_hose() == diameter_hose && 
 				iter->get_category_hose() == cat_3)
 			{
-				list->splice(list->end(), hose_base, iter);
+				list->splice(list->end(), *Hose_base::call(), iter);
 				quan_hose--;
-				iter = hose_base.begin();
+				iter = Hose_base::call()->begin();
 			}
 			break;
 		}
+		if (test == EXIT)
+			break;
 		iter++;
 	}
 }
